@@ -20,10 +20,15 @@ class Question < ActiveRecord::Base
   # 表示の閾値として使う
   def self.categoryTopXViewCount(category_id,x)
     if category_id
-      Question.where(:category_id => category_id).order("viewcount desc").limit(x).last.viewcount
+      viewcount = Question.where(:category_id => category_id).order("viewcount desc").limit(x).last.viewcount
     else
-      Question.order("viewcount desc").limit(x).last.viewcount
+      begin
+        viewcount = Question.order("viewcount desc").limit(x).last.viewcount
+      rescue
+        viewcount = 0
+      end
     end
+    viewcount
   end
   
 end

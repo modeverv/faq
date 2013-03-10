@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     
     @category = @categories[0]
     
-    @top20  = Question.categoryTop20ViewCount
+    @top20  = @category.nil? ? 0 : Question.categoryTop20ViewCount
     
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
     
     @questions = @category.questions.paginate(:page => params[:page])
     
-    @top20  = Question.categoryTop20ViewCount(params[:id])
+    @top20  = @category.nil? ? 0 : Question.categoryTop20ViewCount
 
     respond_to do |format|
       format.html # show.html.erb

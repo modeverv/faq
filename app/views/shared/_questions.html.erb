@@ -6,16 +6,16 @@
       <td colspan="3">
         <h2>
           <%= "★" if question.viewcount >= @top20 %>
-          <%= link_to question.question , question_path(question) %>
+          <%= link_to wrap(question.question,40) , question_path(question) %>
         </h2>
       </td>  
     </tr>
     <tr>
-      <td colspan="3"><p><%= link_to question.answer  , question_path(question) %></p></td>
+      <td colspan="3"><p><%=  wrap(question.answer,200) %></p></td>
     </tr>
     <tr>
       <td>
-        <%= question.category.name %>
+        <%= link_to question.category.name,category_path(question.category) %>
       </td>
       <td>
         <%= question.viewcount %>
@@ -33,7 +33,12 @@
   </table>
 <% end %>
 <%= will_paginate @questions %>
+
 <%=
- link_to t('.new', :default => t("helpers.links.new")), { :controller => :questions, :action => :new, :category_id => @category.id },:class => 'btn btn-primary'
+   if !@category.nil?
+     link_to t('.new', :default => t("helpers.links.new")), { :controller => :questions, :action => :new, :category_id => @category.id },:class => 'btn btn-primary'
+   else
+    link_to t('.new', :default => t("helpers.links.new")), { :controller => :questions, :action => :new },:class => 'btn btn-primary'
+   end   
    %>
 

@@ -13,8 +13,8 @@
   <%= f.input :answer,as: :text%>
   <%#= f.input :viewcount ,as: :integer%>
   <%#= f.input :isanswerd ,as: :integer%>
-  <%= f.association :category,as: :radio_buttons %>
-  <%#= f.input :category_id , :collection => Category.all.collect {|p| [ p.name, p.id ] }, :include_blank => true %>  
+  <%#= f.association :category,as: :radio_buttons %>
+  <%= f.input :category_id , :collection => Category.all.collect {|p| [ p.name, p.id ] }, :include_blank => true %>  
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <% if @question.category  %>

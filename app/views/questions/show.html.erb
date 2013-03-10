@@ -7,9 +7,9 @@
 <div class="span9">
   <%- model_class = Question -%>
   <div class="page-header">
-    <h1><%= @question.question %></h2>
+    <h1><%= @question.question %></h1>
   </div>
-  <p class="lead"><%= @question.answer %></p>
+  <pre style="background-color:#fff" class="lead"><%= @question.answer %></pre>
   <dl class="dl-horizontal">
     <dt><strong><%= model_class.human_attribute_name(:viewcount) %>:</strong></dt>
     <dd><%= @question.viewcount %></dd>

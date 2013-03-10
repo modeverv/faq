@@ -19,3 +19,11 @@
 li {
     line-height: 1em !important;
 }
+#question_question {
+   width:100%;
+   height:100px;
+}
+#question_answer {
+   width:100%;
+   height:200px;
+}   
