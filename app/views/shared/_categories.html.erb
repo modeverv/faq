@@ -1,0 +1,19 @@
+<ul id="categorytree">
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to category.name , category_path(category)%>
+      <% if category.questions %>
+        <ul>
+          <% category.questions.each do |q| %>
+            <li><%= link_to q.question , question_path(q) %>(<%= q.viewcount || 0 %>)</li>  
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<div>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+      new_category_path,
+      :class => 'btn btn-primary' %>
+</div>

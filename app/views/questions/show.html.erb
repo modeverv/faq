@@ -1,0 +1,33 @@
+<div class="span3">
+  <div class="sidebar-nav">
+    <%= render :partial => 'shared/categories' %>
+  </div>
+</div>
+
+<div class="span9">
+  <%- model_class = Question -%>
+  <div class="page-header">
+    <h1><%= @question.question %></h2>
+  </div>
+  <p class="lead"><%= @question.answer %></p>
+  <dl class="dl-horizontal">
+    <dt><strong><%= model_class.human_attribute_name(:viewcount) %>:</strong></dt>
+    <dd><%= @question.viewcount %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
+    <dd><%= @question.category_id %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:isanswerd) %>:</strong></dt>
+    <dd><%= @question.isanswerd %></dd>
+  </dl>
+
+  <div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+        category_path(@question.category_id), :class => 'btn'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+        edit_question_path(@question), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+        question_path(@question),
+        :method => 'delete',
+        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+        :class => 'btn btn-danger' %>
+  </div>
+</div>
