@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to root_path
     else
-      flash.now.alert = "Invalid"
+      flash.now.alert = "Invalid Name or Password"
       render "new"
     end
   end
