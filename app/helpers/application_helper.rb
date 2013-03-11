@@ -1,16 +1,21 @@
 module ApplicationHelper
 
   def wrap(str,str_length=20)
-    str_a = str.split(//)
-    result = str_a.first(str_length).inject("") do |result, char|
-      result += char
+    begin
+      str_a = str.split(//)
+      result = str_a.first(str_length).inject("") do |result, char|
+        result += char
+      end
+      if(str_a.size > str_length)
+        result += "..."
+      else
+        result
+      end
+      str = result
+    rescue
+      #文字列がnilの場合は
     end
-    if(str_a.size > str_length)
-      result + "..."
-    else
-      result
-    end
-    #    sanitize(raw(content.split.map{|s|wrap_long_string(s)}.join(' ')))
+    str
   end
 
   

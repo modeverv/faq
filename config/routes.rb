@@ -1,7 +1,12 @@
 Faq::Application.routes.draw do
   #get "home/index"
   
-  resources :questions
+  resources :questions do
+    collection do
+      get 'q'
+    end
+    get 'answer'
+  end
 
   resources :categories
 

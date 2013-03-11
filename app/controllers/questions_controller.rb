@@ -43,6 +43,33 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # GET /questions/question
+  # GET /questions/question.json
+  def q
+    @question = Question.new
+    @question.category_id = params[:category_id] if params[:category_id]
+    @question.isanswerd = 0
+
+    respond_to do |format|
+      format.html { render :new }# new.html.erb
+      format.json { render json: @question }
+    end
+  end
+
+  # GET /questions/answer
+  # GET /questions/answer.json
+  def answer
+    @question = Question.find(params[:question_id])
+    @question.isanswerd = 1
+    @answer = true
+
+    respond_to do |format|
+      format.html { render :new }# new.html.erb# new.html.erb
+      format.json { render json: @question }
+    end
+  end
+
+  
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])

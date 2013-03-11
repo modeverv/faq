@@ -9,10 +9,8 @@
   <%#= f.label :category_id %>
   <%#= f.label :isanswerd %>
   <%#= f.text_field :isanswerd %>
-  <%= f.input :question ,as: :text %>
-  <%= f.input :answer,as: :text%>
-  <%#= f.input :viewcount ,as: :integer%>
-  <%#= f.input :isanswerd ,as: :integer%>
+  <%= f.input :question ,as: :text%>
+  <%= f.input :answer,as: :text if @answer %>
   <%#= f.association :category,as: :radio_buttons %>
   <%= f.input :category_id , :collection => Category.all.collect {|p| [ p.name, p.id ] }, :include_blank => true %>  
   <div class="form-actions">
@@ -24,5 +22,8 @@
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
           root_path, :class => 'btn' %>
     <% end %>
+  <%= f.input :viewcount ,as: :hidden%>
+  <%= f.input :isanswerd ,as: :hidden%>
+    
   </div>
 <% end %>
