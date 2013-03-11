@@ -22,10 +22,18 @@
         <div class="container">
           <%= link_to image_tag("logo.png",:alt => :faq,:width => "40px"),
               root_path,:class => "brand"%>
+
+          <% if signed_in? %>
+            <%= link_to :logout, signout_path, :confirm=> 'ログアウトしますか？', :method=> :delete%>
+          <% else %>
+            <%= link_to :login,signin_path  %>
+          <% end %>
+          <% if isAdmin? %>
+            <%= "admin menu" %>
+          <% end %>
         </div>
       </div>
     </div>
-
     <div class="container" id="main">
         <div class="row">
           <%= yield %>

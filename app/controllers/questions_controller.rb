@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_filter :must_be_signed_in
+
   # GET /questions
   # GET /questions.json
   def index

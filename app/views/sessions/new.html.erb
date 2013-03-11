@@ -1,0 +1,9 @@
+<h1>Log in</h1>
+<%= simple_form_for :session,url: sessions_path  do |f|%>
+  <%= f.error_notification %>
+  <%= f.input :name  %>
+  <%= f.input :password ,:as => :password %>
+  <%= f.button :submit %>
+<% end  %>
+<p>New user? <%=link_to"Sign up now!",signup_path%></p>
+
