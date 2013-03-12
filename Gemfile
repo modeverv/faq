@@ -73,3 +73,5 @@ group :development,:test do
 end
 
 gem "jquery-treeview-rails", :git => 'git://github.com/kclair/jquery-treeview-rails.git'
+
+gem 'redcarpet','~>1.17.2'

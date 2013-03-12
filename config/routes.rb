@@ -1,4 +1,7 @@
 Faq::Application.routes.draw do
+  resources :comments
+
+
   resources :users
 
   resources :sessions, only: [:new,:create,:destroy]

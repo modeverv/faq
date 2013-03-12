@@ -4,6 +4,8 @@ class Question < ActiveRecord::Base
   # categoryに属する
   belongs_to :category
 
+  has_many :comments
+
   # オーダー
   default_scope order('viewcount DESC')  
 

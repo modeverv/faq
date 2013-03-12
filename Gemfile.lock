@@ -164,6 +164,7 @@ GEM
     rb-fsevent (0.9.3)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (1.17.2)
     ref (1.0.2)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
@@ -249,6 +250,7 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.12)
   rb-fsevent
+  redcarpet (~> 1.17.2)
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)
   simple_form

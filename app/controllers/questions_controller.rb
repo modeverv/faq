@@ -17,14 +17,14 @@ class QuestionsController < ApplicationController
   # 表示のたびにviewcountをインクリメント
   def show
     @question = Question.find(params[:id])
-    
     @categories = Category.all
-
+    
     if @question
       @question.viewcount = 0 if !@question.viewcount
-      @question.viewcount += 1
-      @question.save
+      @question.update_attributes( :viewcount => @question.viewcount + 1  )
     end
+    
+    @comment = @question.comments.build
 
     respond_to do |format|
       format.html # show.html.erb

@@ -18,5 +18,15 @@ module ApplicationHelper
     str
   end
 
-  
+  def markdown(text)
+    options = [
+               :autolink,
+               :gh_blockcode,
+               :hard_wrap,
+               :no_intraemphasis,
+               :fenced_code,
+               :filter_html
+              ]
+    Redcarpet.new(text, *options).to_html.html_safe if !text.nil?
+  end  
 end

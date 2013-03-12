@@ -1,0 +1,5 @@
+<%= simple_form_for @comment do |f| %>
+  <%= f.input :text,:as => :text %>
+  <%= f.input :question_id,:as => :hidden,:value => @question.id %>
+  <%= f.submit :submit %>
+<%  end %>  
